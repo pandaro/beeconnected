@@ -1,0 +1,140 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<style>
+body 
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+</style>
+<body>
+
+<?php echo "<input type='text' value='".date('m/d/y')."'";?>
+<h1>Customize your graphs</h1>
+</body>
+</html>
+
+<html>
+<head>
+<title>Advanced Hive Monitor </title>
+<script type="text/javascript" src="../js/autoEnterCurrentDate.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+<script type="text/javascript">
+function showhide(r){//r è il form checkbox
+var t=r.form['after'];//t è il form da mostrare
+r.value=='none'?t.setAttribute('disabled','disabled'):t.removeAttribute('disabled');
+t.style.display=r.value;
+}
+</script>
+
+<script type="text/javascript">
+function showHide(agent){
+var target=agent.form['a'];//t è il form da mostrare
+if (agent.value == '1'){
+agent.setAttribute('value','2');
+target.setAttribute('disabled',true);
+} else if (agent.value == '2'){
+agent.setAttribute('value','1');
+
+target.setAttribute('disabled',false);
+}
+
+
+
+}
+</script>
+
+<script type="text/javascript">
+function enableDisable(bEnable, textBoxID)
+    {
+         document.getElementById(textBoxID).disabled = !bEnable
+    }
+</script>
+
+
+
+</head>
+<body><br>
+
+
+<form action="/view/grafico11.php" method="get">
+  <input type="checkbox" name="choice[]" value='id'> ID
+  <input type="checkbox" name="choice[]" value="date"> date
+  <input type="checkbox" name="choice[]" value="temperature"> Temperature
+  <input type="checkbox" name="choice[]" value="brightness"> Brightness
+  <input type="checkbox" name="choice[]" value="humidity"> Humidity
+  <input type="checkbox" name="choice[]" value="pressure"> Pressure
+  <input type="checkbox" name="choice[]" value="voltage"> Voltage<br/><br/>
+  <input type="checkbox" name="choice[]" value="total_weight"> Total Weight
+  <input type="checkbox" name="choice[]" value="middleweight"> Middleweight<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale0"> SCALE 0<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale1"> Scale1
+  <input type="checkbox" name="choice[]" value="normal1"> Normal1	<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale2"> Scale2
+  <input type="checkbox" name="choice[]" value="normal2"> Normal2	<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale3"> Scale3
+  <input type="checkbox" name="choice[]" value="normal3"> Normal3 <br/><br/>
+  <input type="checkbox" name="choice[]" value="scale4"> Scale4
+  <input type="checkbox" name="choice[]" value="normal4"> Normal4 <br/><br/>
+  <input type="checkbox" name="choice[]" value="scale5"> Scale5
+  <input type="checkbox" name="choice[]" value="normal5"> Normal5 <br/><br/>
+  <input type="checkbox" name="choice[]" value="scale6"> Scale6
+  <input type="checkbox" name="choice[]" value="normal6"> Normal6<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale7"> Scale7
+  <input type="checkbox" name="choice[]" value="normal7"> Normal7<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale8"> Scale8
+  <input type="checkbox" name="choice[]" value="normal8"> Normal8<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale9"> Scale9
+  <input type="checkbox" name="choice[]" value="normal9"> Normal9<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale10"> Scale10
+  <input type="checkbox" name="choice[]" value="normal10"> Normal10<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale11"> Scale11
+  <input type="checkbox" name="choice[]" value="normal11"> Normal11<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale12"> Scale12
+  <input type="checkbox" name="choice[]" value="normal12"> Normal12<br/><br/>
+  <input type="checkbox" name="choice[]" value="scale13"> Scale13
+  <input type="checkbox" name="choice[]" value="normal13"> Normal13<br/><br/>
+  
+  
+  
+  	<br/><br/>
+  
+<input id ='after' type="checkbox" name="after" onclick="enableDisable(this.checked, 'AfterDate')">After:
+<input id="AfterDate" disabled="disabled" name="After" value = 'AfterDate' >
+
+
+<input id ='before' type="checkbox" name="before" onclick="enableDisable(this.checked, 'DateBefore')">Before: 
+<input id = "DateBefore" disabled=true name = "Before" value = 'DateBefore'> 
+<br/><br/>
+
+<input id ='sampling' type="checkbox" name="sampling" onclick="enableDisable(this.checked, 'Sampling')">Sampling: 
+<input id = "Sampling" disabled=true name = "Sampling" > 
+<br/><br/>
+<input id ='48' type="checkbox" name="48" value = "48">Daily       
+<input id ='336' type="checkbox" name="336" value = "336">Weekly
+<input id ='672' type="checkbox" name="672" value = "672">Crescent
+<input id ='1344' type="checkbox" name="1344" value = "1344">Lunar
+
+<br/><br/>
+
+<input id ='custom' type="checkbox" name="custom" onclick="enableDisable(this.checked, 'Custom')">Custom: 
+<input id = "Custom" disabled=true name = "Custom" > 
+<br/><br/>
+<input type="submit" value="Send module">	<br/><br/>
+
+
+<br/><br/>
+<br/><br/>
+</form>
+</body>
+</html> 
